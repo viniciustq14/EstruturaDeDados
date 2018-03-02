@@ -11,7 +11,7 @@ class Complexo{
     }
     
     public soma() {
-        
+       
     }
     
     public multiplica() {
@@ -30,5 +30,8 @@ class Complexo{
         
     }
     
+    
 
 }
+
+console.log("teste de compilamento")

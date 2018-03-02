@@ -20,3 +20,4 @@ var Complexo = (function () {
     };
     return Complexo;
 }());
+console.log("teste de compilamento");
