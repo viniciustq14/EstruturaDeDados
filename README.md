@@ -26,3 +26,9 @@ Programação orientada a objetos com java e typescript.
 <li>Compílar usando <b> tsc helloWorld.ts </b></li>
 <li>Executar com o comando: <b> node helloWorld.js </b></li>
 </ol>
+
+<h1>Relação entre classes:</h1>
+<ol><h4>Associação:</h4>
+<li>Associação(agregação e composição)(tem um/has a): uma classe A está associada(tem um) a uma classe B quando A possui uma referencia a B.</li>
+<li>Determina que as instâncias de uma classe estão de alguma forma ligadas às instâncias da outra classe</li>
+</ol>
