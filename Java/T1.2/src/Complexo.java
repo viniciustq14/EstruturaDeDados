@@ -3,36 +3,36 @@ public class Complexo {
 	
 	double a, b;
 	
-	void Construtor(double a, double b) {
+	public void Construtor(double a, double b) {
 		this.a = a;
 		this.b = b;
 	}
 	
-	void soma(double c, double d) {
+	public void soma(double c, double d) {
 		
 		System.out.println("A soma de " + c + "+" + d + "i com " + this.a + "+" + this.b + "i é: " + (this.a + c) + "+ "+ (this.b + d) + "i");
 		
 	}
 	
-	void multiplica(double c, double d) {
+	public void multiplica(double c, double d) {
 		
 		System.out.println("A multiplicacao de " + c + "+" + d + "i com " + this.a + "+" + this.b + "i é: " + ((this.a * c) - (this.b * d)) + "+" + ((this.a * d) + (this.b * c)) + "i");
 		
 	}
 	
-	void mostrar() {
+	public void mostrar() {
 		
 		System.out.println(this.a + "+" + this.b + "i");
 		
 	}
 	
-	double modulo() {
+	public double modulo() {
 			
 		return Math.sqrt(Math.pow(this.a, 2) + Math.pow(this.b, 2));
 				
 	}
 	
-	double argumentoPrincipal() {
+	public double argumentoPrincipal() {
 		
 	/*	double tangente, cosseno, seno;
 		cosseno = this.a / this.modulo();
