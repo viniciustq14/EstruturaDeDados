@@ -27,7 +27,7 @@ public class Cliente {
 		System.out.println("O saldo do " + nome + " atual é: R$" + checarSaldo());
 	}
 	
-	public void tranf(Cliente c1, Cliente c2, double val) {
+	public void transf(Cliente c1, Cliente c2, double val) {
 		Doc doc = new Doc();
 		doc.transferir(c1, c2, val);
 	}

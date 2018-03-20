@@ -22,10 +22,10 @@ public class Teste {
 		c2.sacar(3000);
 		c2.sacar(3000);
 		c2.depositar(225);
-		c1.tranf(c1, c2, 5000);
-		c1.tranf(c1, c2, 1000);
-		c2.tranf(c2, c1, 6000);
-		c2.tranf(c2, c1, 2000);
+		c1.transf(c1, c2, 5000);
+		c1.transf(c1, c2, 1000);
+		c2.transf(c2, c1, 6000);
+		c2.transf(c2, c1, 2000);
 				
 	}
 
