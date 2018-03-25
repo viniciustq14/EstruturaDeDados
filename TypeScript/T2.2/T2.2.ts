@@ -2,7 +2,8 @@ class Cliente{
     private nome: string
     private saldo: number
     private limite: number
-    
+	
+	
     constructor (nome: string, saldo: number, limite: number) {
         this.nome = nome
         this.saldo = saldo
@@ -23,12 +24,12 @@ class Cliente{
 	
 	public depositar(val: number) {
 		this.saldo += val
-		console.log("O saldo do " + this.nome + " atual é: R$" + this.checarSaldo())
+		console.log("O saldo atual do " + this.nome + " é: R$" + this.checarSaldo())
 	}
 	
 	public transf(c1: Cliente, c2: Cliente, val: number) {
-        var doc = new Doc()
-        doc.transferir(c1, c2, val)
+		var doc = new Doc
+		doc.transferir(c1,c2,val)
 	}
 	
 	public checarSaldo(): number {
@@ -52,8 +53,10 @@ class Cliente{
 
 class Doc {
     public transferir(c1: Cliente, c2: Cliente, quantia: number) {
-		if(quantia <= c1.checarSaldo()) 
-			c2.depositar(quantia)
+		if(quantia <= c1.checarSaldo()) {
+			c1.sacar(quantia) 
+			c2.depositar(quantia) 
+		}
 		else
 			console.log("Saldo insuficiente para transferência")
 	}

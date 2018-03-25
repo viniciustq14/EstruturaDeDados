@@ -15,10 +15,10 @@ var Cliente = /** @class */ (function () {
     };
     Cliente.prototype.depositar = function (val) {
         this.saldo += val;
-        console.log("O saldo do " + this.nome + " atual é: R$" + this.checarSaldo());
+        console.log("O saldo atual do " + this.nome + " é: R$" + this.checarSaldo());
     };
     Cliente.prototype.transf = function (c1, c2, val) {
-        var doc = new Doc();
+        var doc = new Doc;
         doc.transferir(c1, c2, val);
     };
     Cliente.prototype.checarSaldo = function () {
@@ -39,8 +39,10 @@ var Doc = /** @class */ (function () {
     function Doc() {
     }
     Doc.prototype.transferir = function (c1, c2, quantia) {
-        if (quantia <= c1.checarSaldo())
+        if (quantia <= c1.checarSaldo()) {
+            c1.sacar(quantia);
             c2.depositar(quantia);
+        }
         else
             console.log("Saldo insuficiente para transferência");
     };
