@@ -1,8 +1,8 @@
 var Livro = /** @class */ (function () {
-    function Livro(nome, cat, dispo) {
+    function Livro(nome, cat, copias) {
         this.nome = nome;
         this.catLivro = cat;
-        this.disponibilidade = dispo;
+        this.copias = copias;
         this.setValor();
     }
     Livro.prototype.setValor = function () {
@@ -51,13 +51,14 @@ var Livro = /** @class */ (function () {
     Livro.prototype.getNome = function () {
         return this.nome;
     };
-    Livro.prototype.getDispo = function () {
-        if (this.disponibilidade) {
-            return "Disponivel";
+    Livro.prototype.vender = function (copVen) {
+        copVen = Math.max(1, copVen);
+        if (copVen <= this.copias) {
+            this.copias -= copVen;
         }
-        else {
-            return "Ocupado";
-        }
+    };
+    Livro.prototype.getCopias = function () {
+        return this.copias;
     };
     return Livro;
 }());
@@ -77,13 +78,14 @@ var Tela = /** @class */ (function () {
         console.log("NOME : " + this.a.getNome());
         console.log("TIPO : " + this.a.getCatLivro());
         console.log("PREÇO : " + this.a.getValor());
-        console.log("Disponibilidade : " + this.a.getDispo());
+        console.log("Copias disponiveis : " + this.a.getCopias());
     };
     return Tela;
 }());
 //var c:Categoria=Categoria.FISICO;
-var l = new Livro("m", Categoria.PDF, false);
+var l = new Livro("m", Categoria.PDF, 15);
 var t = new Tela();
-var g = new Livro("Java e seu recursos", Categoria.EPUB, true);
+var g = new Livro("Java e seu recursos", Categoria.EPUB, 9);
+l.vender(17);
 t.mostrarLivro(l);
 t.mostrarLivro(g);

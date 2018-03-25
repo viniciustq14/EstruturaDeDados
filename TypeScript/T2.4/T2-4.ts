@@ -1,14 +1,15 @@
 class Livro{
     private nome:string;
     private valor:number;
-    private disponibilidade:boolean;
+    private copias :number;
+   
     catLivro:Categoria;
     
     
-    constructor(nome:string,cat:Categoria,dispo:boolean){
+    constructor(nome:string,cat:Categoria,copias:number){
         this.nome=nome;
         this.catLivro=cat;
-        this.disponibilidade=dispo;
+        this.copias=copias;
         this.setValor();
     
 
@@ -70,14 +71,22 @@ class Livro{
    public getNome():string{
          return this.nome;
     }
-   public getDispo():string{
-        if(this.disponibilidade){
-            return "Disponivel";
+  
+
+    
+    public vender(copVen) {
+        copVen=Math.max(1,copVen);
+        if(copVen<=this.copias){
+            this.copias-=copVen;
         }
-        else{
-              return "Ocupado";
-        }
+        
+
     }
+   
+    public getCopias() :number{
+        return this.copias;
+    }
+
 }
 enum Categoria{EPUB,PDF,FISICO};
 
@@ -90,15 +99,17 @@ private a:Livro;
         console.log("NOME : "+this.a.getNome());
         console.log("TIPO : "+this.a.getCatLivro());
         console.log("PREÇO : "+this.a.getValor());
-        console.log("Disponibilidade : "+this.a.getDispo());
+       
+        console.log("Copias disponiveis : "+this.a.getCopias());
     }
 
 }
 
 //var c:Categoria=Categoria.FISICO;
-var l=new Livro("m",Categoria.PDF,false);
+var l=new Livro("m",Categoria.PDF,15);
 var t=new Tela();
-var g=new Livro("Java e seu recursos",Categoria.EPUB,true);
+var g=new Livro("Java e seu recursos",Categoria.EPUB,9);
+l.vender(17);
 t.mostrarLivro(l);
 t.mostrarLivro(g);
 
