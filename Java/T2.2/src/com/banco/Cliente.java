@@ -24,7 +24,7 @@ public class Cliente {
 	
 	public void depositar(double val) {
 		this.saldo += val;
-		System.out.println("O saldo do " + nome + " atual é: R$" + checarSaldo());
+		System.out.println("O saldo atual do " + nome + " é: R$" + checarSaldo());
 	}
 	
 	public void transf(Cliente c1, Cliente c2, double val) {
