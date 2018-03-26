@@ -9,10 +9,6 @@ class Bateria{
       return this.carga
     }
 
-    public setCarga(carga: number){
-      this.carga = carga
-    }
-
     public carregar(){
       this.carga = this.carga + 5
     }
@@ -20,7 +16,6 @@ class Bateria{
     public descarregar(){
       this.carga = this.carga - 10
     }
-
 }
 
 class Celular{
@@ -29,16 +24,33 @@ class Celular{
   private estadoCelular: boolean = false
   private b: Bateria
 
-  constructor(identficador: number, nomeUsuario: string){
+  public constructor(identficador: number, nomeUsuario: string, b: Bateria){
     this.identficador = identficador
     this.nomeUsuario = nomeUsuario
+    this.b = b
+  }
+
+  public carregar(){
+    this.b.carregar();
+}
+  public descarregar(){
+    this.b.descarregar();
+}
+  public setB(b: Bateria){//Possivel troca de bateria.
+    this.b = b
+  }
+
+  public getCarga(){
+    return this.b.getCarga()
+  }
+
+  public getNomeUsuario(){
+    return this.nomeUsuario;
   }
   public getIdentficador(){
     return this.identficador
   }
-  public setB(b: Bateria){
-    this.b = b
-  }
+
   public getEstadoCelular(){
     if(this.estadoCelular == false){
       return "Desligado"
@@ -47,33 +59,34 @@ class Celular{
     }
   }
 
-  public setEstadoCelular(estadoCelular:boolean){
-    this.estadoCelular = estadoCelular
+  public getIdentificador(){
+    return this.identficador;
   }
 
   public ligarCelular(){
     if(this.getEstadoCelular() == "Desligado"){
       if(this.b.getCarga() >= 20){
-          this.setEstadoCelular(true)
+          this.estadoCelular = !this.estadoCelular
           console.log("Celular ligado")
-          console.log("mklemann - Matheus Klemann")
-          this.b.setCarga(this.b.getCarga() - 20)
+          console.log(this.getNomeUsuario())
+          this.descarregar()//20 Unidades de bateria
+          this.descarregar()
       }else if(this.b.getCarga()< 20 && this.b.getCarga() > 0){
-        this.setEstadoCelular(true)
+        this.estadoCelular = !this.estadoCelular
         console.log("Celular ligado")
-        console.log("mklemann - Matheus Klemann")
+        console.log(this.getNomeUsuario())
         console.log("Bateria Fraca")
       }
     }
   }
+
   public desligarCelular(){
     if(this.getEstadoCelular() == "Ligado"){
-      this.setEstadoCelular(false)
-      if(this.b.getCarga() >= 20){
-        this.b.setCarga(this.b.getCarga() - 10)
-        console.log("Falow!")
-      }
-      console.log("Falow!")
+      this.estadoCelular = !this.estadoCelular
+        if(this.b.getCarga() >= 20){
+          console.log("Falow!")
+        }
+      this.b.descarregar()
     }
   }
   public tocarSom(){
@@ -82,17 +95,27 @@ class Celular{
     }
   }
 
-
 }
 
-var b = new Bateria(10)
-var c = new Celular(1, "matheus")
 
-c.setB(b)
-console.log(b.getCarga())
-c.ligarCelular()
-console.log(b.getCarga())
-c.desligarCelular()
-console.log(b.getCarga())
-console.log(c.getEstadoCelular())
+let b1 = new Bateria(15)
+let b2 = new Bateria(100)
 
+let c1 = new Celular(10, "mkleamnn", b1)
+
+console.log(`Estado atual do celular: ${c1.getEstadoCelular()}`)
+console.log(`Carga atual: ${c1.getCarga()}`)
+c1.ligarCelular()
+console.log(`Estado atual do celular: ${c1.getEstadoCelular()}`)
+console.log(`Carga atual: ${c1.getCarga()}`)
+
+console.log("  ")
+console.log("TROCA DE BATERIA")
+console.log("  ")
+
+c1.setB(b2)
+console.log(`Estado atual do celular: ${c1.getEstadoCelular()}`)
+console.log(`Carga atual: ${c1.getCarga()}`)
+c1.desligarCelular()
+console.log(`Estado atual do celular: ${c1.getEstadoCelular()}`)
+console.log(`Carga atual: ${c1.getCarga()}`)
