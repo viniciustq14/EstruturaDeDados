@@ -11,7 +11,7 @@ public class teste {
         System.out.println(c.getEstadoCelular());
         System.out.println(c.getCarga());//30 de carga
 
-        b1.carregar();//Carrega 5
+        c.carregar();//Carrega 5
         System.out.println(c.getCarga());//35 de carga
 
 

@@ -29,9 +29,21 @@ public class Celular {
         this.b = b;
     }
 
+    public void carregar(){
+        b.carregar();
+    }
+    public void descarregar(){
+        b.descarregar();
+    }
+
     public void setB(Bateria b) {
         this.b = b;           //Trocar a bateria do celular
     }
+
+    public Integer getCarga() {
+        return b.getCarga();
+    }
+
 
 
     public Integer getIdentficador() {
@@ -42,9 +54,6 @@ public class Celular {
         return nomeUsuario;
     }
 
-    public Integer getCarga() {
-        return b.getCarga();
-    }
 
     public boolean getEstadoCelular() {
         return estadoCelular;
@@ -54,7 +63,7 @@ public class Celular {
         if(getEstadoCelular() == false) {
             if (b.getCarga() >= 20) {
                 estadoCelular = !estadoCelular;
-                System.out.println("Celular ligado!");
+                System.out.println(getNomeUsuario());
                 System.out.println("mklemann!");
                 b.descarregar();//10 unidades de carga
                 b.descarregar();//10 unidades de carga
