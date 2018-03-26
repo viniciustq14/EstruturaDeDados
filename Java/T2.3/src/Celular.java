@@ -1,12 +1,36 @@
+/*Exercício 1.3. Uma bateria é composto por um número que representa
+        sua carga (de 0 a 100). Toda bateria pode ser descarregada a cada mo-
+        mento em 10 unidades e carregada em 5. Um celular é composto de
+        um número (identificador), um nome de usuário e uma bateria. Cada
+        vez que um celular liga, dever-se-á mostrar na tela o nome do usuá-
+        rio e seu nome na tela, porém se não houver bateria (ou esta estiver
+        sem carga) nada deverá ser mostrado e se a carga estiver abaixo de
+        20 a mensagem bateria fraca deverá ser mostrada. Para desligar, uma
+        mensagem de despedida deverá ser mostrada na tela, caso não haja bateria (ou a bateria estiver com carga baixa), nada deverá ser mos-
+trado. Cada vez que liga, 20 unidades de bateria deverão ser gastos (se
+houver menos, nada deverá ser feito) e quando desliga 10. Um celu-
+lar só desliga se estiver ligado e vice-versa. Um celular também pode
+tocar um som se estiver ligado e com bateria com carga suficiente (ao
+menos 10 unidades). Podemos também trocar a bateria de um celu-
+lar quando quisermos. Implemente todas as classes envolvidas nessa
+situação, lembre-se de usar construtores e metodos get, se necessário.
+Implemente também alguns testes. É proíbido usar conceitos que ainda
+não foram abordados. */
+
 public class Celular {
     private Integer identficador;
     private String nomeUsuario;
     Bateria b;
     private boolean estadoCelular = false;
 
-    public Celular(Integer identficador, String nomeUsuario) {
+    public Celular(Integer identficador, String nomeUsuario, Bateria b) {
         this.identficador = identficador;
         this.nomeUsuario = nomeUsuario;
+        this.b = b;
+    }
+
+    public void setB(Bateria b) {
+        this.b = b;           //Trocar a bateria do celular
     }
 
 
@@ -18,31 +42,24 @@ public class Celular {
         return nomeUsuario;
     }
 
-    public void setB(Bateria b) {
-        this.b = b;
+    public Integer getCarga() {
+        return b.getCarga();
     }
 
     public boolean getEstadoCelular() {
         return estadoCelular;
     }
 
-    public void setEstadoCelular(boolean estadoCelular) {
-        this.estadoCelular = estadoCelular;
-    }
-
     public void ligarCelular() {
         if(getEstadoCelular() == false) {
             if (b.getCarga() >= 20) {
-                setEstadoCelular(true);
+                estadoCelular = !estadoCelular;
                 System.out.println("Celular ligado!");
                 System.out.println("mklemann!");
-                System.out.println("Matheus Klemann!");
-                b.setCarga(b.getCarga() - 20);
+                b.descarregar();//10 unidades de carga
+                b.descarregar();//10 unidades de carga
             } else if (b.getCarga() < 20 && b.getCarga() > 0) {
-                setEstadoCelular(true);
-                System.out.println("Celular ligado!");
-                System.out.println("mklemann!");
-                System.out.println("Matheus Klemann!");
+                estadoCelular = !estadoCelular;
                 System.out.println("Bateria Fraca!");
             }
         }
@@ -50,10 +67,10 @@ public class Celular {
 
     public void desligarCelular(){
         if(getEstadoCelular() == true) {
-            setEstadoCelular(false);
+            estadoCelular = !estadoCelular;
             if (b.getCarga() >= 20)
                 System.out.println("Falow!");
-            b.setCarga(b.getCarga() - 10);
+            b.descarregar(); //10 unidades de carga
         }
     }
 
