@@ -2,12 +2,14 @@ class Cliente{
     private nome: string
     private saldo: number
     private limite: number
+    private doc: Doc
 	
 	
     constructor (nome: string, saldo: number, limite: number) {
         this.nome = nome
         this.saldo = saldo
         this.limite = limite
+        this.doc = new Doc
     }
 
     public sacar(val: number) {
@@ -28,14 +30,16 @@ class Cliente{
 	}
 	
 	public transf(c1: Cliente, c2: Cliente, val: number) {
-		var doc = new Doc
-		doc.transferir(c1,c2,val)
+	    this.getDoc().transferir(c1,c2,val)
 	}
 	
 	public checarSaldo(): number {
 		return this.saldo + this.limite
 	}
 
+    public getDoc(): Doc {
+        return this.doc
+    }
 
 	public getNome(): string {
 		return this.nome

@@ -3,6 +3,7 @@ var Cliente = /** @class */ (function () {
         this.nome = nome;
         this.saldo = saldo;
         this.limite = limite;
+        this.doc = new Doc;
     }
     Cliente.prototype.sacar = function (val) {
         if (val <= this.checarSaldo()) {
@@ -18,11 +19,13 @@ var Cliente = /** @class */ (function () {
         console.log("O saldo atual do " + this.nome + " é: R$" + this.checarSaldo());
     };
     Cliente.prototype.transf = function (c1, c2, val) {
-        var doc = new Doc;
-        doc.transferir(c1, c2, val);
+        this.getDoc().transferir(c1, c2, val);
     };
     Cliente.prototype.checarSaldo = function () {
         return this.saldo + this.limite;
+    };
+    Cliente.prototype.getDoc = function () {
+        return this.doc;
     };
     Cliente.prototype.getNome = function () {
         return this.nome;
