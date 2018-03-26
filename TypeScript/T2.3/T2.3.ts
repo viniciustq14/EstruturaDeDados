@@ -59,10 +59,6 @@ class Celular{
     }
   }
 
-  public getIdentificador(){
-    return this.identficador;
-  }
-
   public ligarCelular(){
     if(this.getEstadoCelular() == "Desligado"){
       if(this.b.getCarga() >= 20){
