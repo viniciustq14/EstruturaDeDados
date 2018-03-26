@@ -39,8 +39,10 @@ Programação orientada a objetos com java e typescript.
 <h4>Construtor em classes:</h4>
 <ol>
 <li>É algo executado na criacao do objeto(new), serve para inicializar os objetos (reservar um espaço na memória na instacia do objeto). Aqui podemos, tambem executar rotinas iniciais.</li>
-<li><h5>this</h5></li>
+<ol><h5>this</h5></li>
 <li>É um operador de referência. Ele aponta para a variavel "global" da classe quando se está em um escopo "local". Serve para destinguir variaveis com o mesmo nomes em escopos diferentes. EX: Classe e construtor</li>
+</ol>
+
 <li><h5>Enum</h5></li>
 <li>Enum sao valores que representam dados que possuem uma quantidade limitada de possibilidades.</li>
 </ol>
