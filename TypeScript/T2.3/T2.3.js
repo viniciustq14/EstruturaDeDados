@@ -20,12 +20,6 @@ var Celular = /** @class */ (function () {
         this.nomeUsuario = nomeUsuario;
         this.b = b;
     }
-    Celular.prototype.carregar = function () {
-        this.b.carregar();
-    };
-    Celular.prototype.descarregar = function () {
-        this.b.descarregar();
-    };
     Celular.prototype.setB = function (b) {
         this.b = b;
     };
@@ -46,17 +40,14 @@ var Celular = /** @class */ (function () {
             return "Ligado";
         }
     };
-    Celular.prototype.getIdentificador = function () {
-        return this.identficador;
-    };
     Celular.prototype.ligarCelular = function () {
         if (this.getEstadoCelular() == "Desligado") {
             if (this.b.getCarga() >= 20) {
                 this.estadoCelular = !this.estadoCelular;
                 console.log("Celular ligado");
                 console.log(this.getNomeUsuario());
-                this.descarregar(); //20 Unidades de bateria
-                this.descarregar();
+                this.b.descarregar(); //20 Unidades de bateria
+                this.b.descarregar();
             }
             else if (this.b.getCarga() < 20 && this.b.getCarga() > 0) {
                 this.estadoCelular = !this.estadoCelular;
