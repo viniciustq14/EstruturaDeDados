@@ -30,12 +30,6 @@ class Celular{
     this.b = b
   }
 
-  public carregar(){
-    this.b.carregar();
-}
-  public descarregar(){
-    this.b.descarregar();
-}
   public setB(b: Bateria){//Possivel troca de bateria.
     this.b = b
   }
@@ -65,8 +59,8 @@ class Celular{
           this.estadoCelular = !this.estadoCelular
           console.log("Celular ligado")
           console.log(this.getNomeUsuario())
-          this.descarregar()//20 Unidades de bateria
-          this.descarregar()
+          this.b.descarregar()//20 Unidades de bateria
+          this.b.descarregar()
       }else if(this.b.getCarga()< 20 && this.b.getCarga() > 0){
         this.estadoCelular = !this.estadoCelular
         console.log("Celular ligado")
