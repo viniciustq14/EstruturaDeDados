@@ -46,15 +46,11 @@ class Celular{
   }
 
   public getEstadoCelular(){
-    if(this.estadoCelular == false){
-      return "Desligado"
-    }else{
-      return "Ligado"
-    }
+    return this.estadoCelular
   }
 
   public ligarCelular(){
-    if(this.getEstadoCelular() == "Desligado"){
+    if(!this.getEstadoCelular()){
       if(this.b.getCarga() >= 20){
           this.estadoCelular = !this.estadoCelular
           console.log("Celular ligado")
@@ -71,7 +67,7 @@ class Celular{
   }
 
   public desligarCelular(){
-    if(this.getEstadoCelular() == "Ligado"){
+    if(this.getEstadoCelular()){
       this.estadoCelular = !this.estadoCelular
         if(this.b.getCarga() >= 20){
           console.log("Falow!")

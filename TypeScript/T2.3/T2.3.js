@@ -33,15 +33,10 @@ var Celular = /** @class */ (function () {
         return this.identficador;
     };
     Celular.prototype.getEstadoCelular = function () {
-        if (this.estadoCelular == false) {
-            return "Desligado";
-        }
-        else {
-            return "Ligado";
-        }
+        return this.estadoCelular;
     };
     Celular.prototype.ligarCelular = function () {
-        if (this.getEstadoCelular() == "Desligado") {
+        if (!this.getEstadoCelular()) {
             if (this.b.getCarga() >= 20) {
                 this.estadoCelular = !this.estadoCelular;
                 console.log("Celular ligado");
@@ -58,7 +53,7 @@ var Celular = /** @class */ (function () {
         }
     };
     Celular.prototype.desligarCelular = function () {
-        if (this.getEstadoCelular() == "Ligado") {
+        if (this.getEstadoCelular()) {
             this.estadoCelular = !this.estadoCelular;
             if (this.b.getCarga() >= 20) {
                 console.log("Falow!");
