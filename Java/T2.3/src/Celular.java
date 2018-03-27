@@ -60,7 +60,7 @@ public class Celular {
     }
 
     public void ligarCelular() {
-        if(getEstadoCelular() == false) {
+        if(!getEstadoCelular()) {
             if (b.getCarga() >= 20) {
                 estadoCelular = !estadoCelular;
                 System.out.println(getNomeUsuario());
@@ -75,7 +75,7 @@ public class Celular {
     }
 
     public void desligarCelular(){
-        if(getEstadoCelular() == true) {
+        if(getEstadoCelular()) {
             estadoCelular = !estadoCelular;
             if (b.getCarga() >= 20)
                 System.out.println("Falow!");
