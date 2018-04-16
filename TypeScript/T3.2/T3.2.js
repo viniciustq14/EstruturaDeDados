@@ -96,27 +96,86 @@ var clientePremium = /** @class */ (function (_super) {
     };
     return clientePremium;
 }(Cliente));
-var list = [];
-var op = 10;
-while (op != 9) {
-    console.log("1 - Verificar tarifas e cadastrar cliente vip.");
-    console.log("2 - Verificar tarifas e cadastrar cliente regular.");
-    console.log("3 - Verificar tarifas e cadastrar cliente premium.");
-    console.log("4 - Verificar tarifas gerais.");
-    prompt("DSAD");
-    console.log("9 - Sair.");
-    console.log(op);
-    switch (op) {
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        default:
-            console.log("OP Errada!");
+/*Sabe-se que VIP, Premium e Regular são tipos de Cli-
+ente. Em cada cliente, há a necessidade de controle de conta corrente.
+Em uma conta, há dados como nome, e saldo. Para cada tipo de conta
+uma tarifa deve ser calculada: 1% do saldo para Regular, 2% para Pre-
+mium e 4% para VIP. Use Herança. Aqui, fica proíbido usar conceitos
+que não foram vistos em aula.
+• Esboce um diagrama de classes.
+• Implemente as classes e seus métodos.
+• Crie um pequeno menu para cadastrar clientes e vericar o valor
+das tarifas.*/
+var btnVip = document.getElementById("cadCliVip");
+var cliPremiuns = [];
+var cliVips = [];
+var cliRegs = [];
+function inicializacaoBotoesEInput() {
+    var nome = document.getElementById("cliNome");
+    var saldo = document.getElementById("cliSaldo");
+    var btnVip = document.getElementById("cadCliVip");
+    var btnPre = document.getElementById("cadCliPre");
+    var btnReg = document.getElementById("cadCliReg");
+    var mostratTarifas = document.getElementById("mostrarTarifas");
+    var inputNome = "NOME " + "<input id='tagNome' type='text' name='nome'>" + "</input>";
+    var inputSaldo = "SALDO" + "<input id='tagSaldo' type='text' name='saldo'>" + "</input>";
+    var btnCadVip = "<input id='cadastrarVip' type='button' name='saldo' value='cadastrar vip' onclick='cadastrarVip()'>" + "</input>";
+    var btnCadPre = "<input id='cadastrarPre' type='button' name='saldo' value='cadastrar premium' onclick='cadastrarPremium()'>" + "</input>";
+    var btnCadReg = "<input id='cadastrarReg' type='button' name='saldo' value='cadastrar regular' onclick='cadastrarRegular()'>" + "</input>";
+    var btnTarifas = "<input id='cadastrarReg' type='button' name='saldo' value='Mostrar Tarifas' onclick='mostrarTarifas()'" + "</input>";
+    nome.innerHTML = inputNome;
+    saldo.innerHTML = inputSaldo;
+    btnVip.innerHTML = btnCadVip;
+    btnPre.innerHTML = btnCadPre;
+    btnReg.innerHTML = btnCadReg;
+    mostratTarifas.innerHTML = btnTarifas;
+}
+function cadastrarVip() {
+    var nome = document.getElementById("tagNome").value;
+    var saldo = document.getElementById("tagSaldo").value;
+    var newVip = new clienteVip(String(nome), Number(saldo));
+    cliVips.push(newVip);
+}
+function cadastrarPremium() {
+    var nome = document.getElementById("tagNome").value;
+    var saldo = document.getElementById("tagSaldo").value;
+    var newPremium = new clientePremium(String(nome), Number(saldo));
+    cliPremiuns.push(newPremium);
+}
+function cadastrarRegular() {
+    var nome = document.getElementById("tagNome").value;
+    var saldo = document.getElementById("tagSaldo").value;
+    var newRegular = new clienteRegular(String(nome), Number(saldo));
+    cliRegs.push(newRegular);
+}
+function mostrarTarifas() {
+    var mostraTudo = document.getElementById('mostrarTarifas');
+    for (var i in cliVips) {
+        var tarifaNome = document.createElement("p");
+        var tarifa = document.createElement("p");
+        var tarifas = document.getElementById('mostrarTarifas');
+        tarifas.appendChild(tarifaNome);
+        tarifas.appendChild(tarifa);
+        tarifaNome.innerHTML = "Nome Vip: " + cliVips[i].nome;
+        tarifa.innerHTML = "Tarifa Vip: " + String(cliVips[i].calcularTarifa());
+    }
+    for (var i in cliPremiuns) {
+        var tarifaNome = document.createElement("p");
+        var tarifa = document.createElement("p");
+        var tarifas = document.getElementById('mostrarTarifas');
+        tarifas.appendChild(tarifaNome);
+        tarifas.appendChild(tarifa);
+        tarifaNome.innerHTML = "Nome Premium: " + cliPremiuns[i].nome;
+        tarifa.innerHTML = "Tarifa Premium: " + String(cliPremiuns[i].calcularTarifa());
+    }
+    for (var i in cliRegs) {
+        var tarifaNome = document.createElement("p");
+        var tarifa = document.createElement("p");
+        var tarifas = document.getElementById('mostrarTarifas');
+        tarifas.appendChild(tarifaNome);
+        tarifas.appendChild(tarifa);
+        tarifaNome.innerHTML = "Nome Regular: " + cliRegs[i].nome;
+        tarifa.innerHTML = "Tarifa Regular: " + String(cliRegs[i].calcularTarifa());
     }
 }
-console.log(list);
+window.onload = inicializacaoBotoesEInput;
