@@ -24,7 +24,7 @@ public class teste {
                     System.out.print("Digite o nome do cliente: ");
                     String nomeVip = ler.next();
                     System.out.print("Digite o saldo da conta do cliente: ");
-                    double saldoVip = ler.nextInt();
+                    double saldoVip = ler.nextDouble();
 
                     if(cliVips.add(new clienteVip(nomeVip, saldoVip))){
                         System.out.println(" ");
@@ -48,7 +48,7 @@ public class teste {
                     System.out.print("Digite o nome do cliente: ");
                     String nomeRegular = ler.next();
                     System.out.print("Digite o saldo da conta do cliente: ");
-                    double saldoRegular = ler.nextInt();
+                    double saldoRegular = ler.nextDouble();
 
                     if(cliRegular.add(new clienteRegular(nomeRegular, saldoRegular))){
                         System.out.println("Cliente inserido com sucesso!");
@@ -69,7 +69,7 @@ public class teste {
                     System.out.print("Digite o nome do cliente: ");
                     String nomePremium = ler.next();
                     System.out.print("Digite o saldo da conta do cliente: ");
-                    double saldoPremium = ler.nextInt();
+                    double saldoPremium = ler.nextDouble();
 
                     if(cliPremium.add(new clientePremium(nomePremium, saldoPremium))){
                         System.out.println("Cliente inserido com sucesso!");
