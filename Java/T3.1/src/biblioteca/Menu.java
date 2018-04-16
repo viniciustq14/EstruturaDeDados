@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-	private int opc, opcL, ano, qt, contEst = 0, contLiv = 0, cont = 0, contF = 0, contL = 0, contC = 0, id = 0;
+	private int opc, opcL, ano, qt, contEst, contLiv, cont, contF, contL, contC, id;
 	private ArrayList<Estante> estantes = new ArrayList<Estante>();
 	private ArrayList<Livro> livros = new ArrayList<Livro>();
 	private String nome, autor;
@@ -43,7 +43,7 @@ public class Menu {
 						qt = Integer.parseInt(s.nextLine());
 						estantes.add(new Estante(this.nome, Categoria.Ciência, this.qt));
 						b.inserirEstante(estantes.get(contEst++));
-						System.out.println("Estante inserida com sucesso.");
+						System.out.println("\nEstante inserida com sucesso.");
 						break;
 					case 2:
 						System.out.print("\nDigite o nome da estante: ");
@@ -52,7 +52,7 @@ public class Menu {
 						qt = Integer.parseInt(s.nextLine());
 						estantes.add(new Estante(this.nome, Categoria.Literatura, this.qt));
 						b.inserirEstante(estantes.get(contEst++));
-						System.out.println("Estante inserida com sucesso.");
+						System.out.println("\nEstante inserida com sucesso.");
 						break;
 					case 3:
 						System.out.print("\nDigite o nome da estante: ");
@@ -61,10 +61,10 @@ public class Menu {
 						qt = Integer.parseInt(s.nextLine());
 						estantes.add(new Estante(this.nome, Categoria.Filosofia, this.qt));
 						b.inserirEstante(estantes.get(contEst++));
-						System.out.println("Estante inserida com sucesso.");
+						System.out.println("\nEstante inserida com sucesso.");
 						break;
 					default:
-						System.out.println("Opção Inválida\n\n");
+						System.out.println("\nOpção Inválida\n\n");
 						break;
 				}
 			} while(opc != 1 && opc != 2 && opc != 3);
@@ -88,7 +88,7 @@ public class Menu {
 						for (Estante estante : estantes) {
 							if(estante.getCatEstante() == (Categoria.Ciência)) {
 								b.mostrarEstantes().get(cont).inserirLivro(livros.get(contLiv++));
-								System.out.println("Livro inserido com sucesso");
+								System.out.println("\nLivro inserido com sucesso");
 								contC++;
 								break;
 								}
@@ -108,7 +108,7 @@ public class Menu {
 						for (Estante estante : estantes) {			
 							if(estante.getCatEstante() == (Categoria.Literatura)) {
 								b.mostrarEstantes().get(cont).inserirLivro(livros.get(contLiv++));
-								System.out.println("Livro inserido com sucesso");
+								System.out.println("\nLivro inserido com sucesso");
 								contL++;
 								break;					
 								}
@@ -128,7 +128,7 @@ public class Menu {
 						for (Estante estante : estantes) {			
 							if(estante.getCatEstante() == (Categoria.Filosofia)) {
 								b.mostrarEstantes().get(cont).inserirLivro(livros.get(contLiv++));
-								System.out.println("Livro inserido com sucesso");
+								System.out.println("\nLivro inserido com sucesso");
 								contF++;
 								break;					
 								}
@@ -164,10 +164,11 @@ public class Menu {
 								b.mostrarEstantes().get(cont).removerLivro(livros.get(opcL));
 								System.out.println("\nLivro removido com sucesso.");
 								contC--;
+								break;
 							}
 							cont++;
 							}
-					//	System.out.println("Não existe nenhuma estante dessa categoria");
+						System.out.println("\nNão existe nenhuma estante dessa categoria");
 						break;
 					case 2:
 						cont = 0;
@@ -184,10 +185,11 @@ public class Menu {
 								b.mostrarEstantes().get(cont).removerLivro(livros.get(opcL));
 								System.out.println("\nLivro removido com sucesso.");
 								contL--;
+								break;
 							}
 							cont++;
 							}
-					//	System.out.println("Não existe nenhuma estante dessa categoria");
+						System.out.println("\nNão existe nenhuma estante dessa categoria");
 						break;
 					case 3:
 						cont = 0;
@@ -204,10 +206,11 @@ public class Menu {
 								b.mostrarEstantes().get(cont).removerLivro(livros.get(opcL));
 								System.out.println("\nLivro removido com sucesso.");
 								contF--;
+								break;
 							}
 							cont++;
 							}
-					//	System.out.println("Não existe nenhuma estante dessa categoria");
+						System.out.println("\nNão existe nenhuma estante dessa categoria");
 						break;
 					default:
 							System.out.println("Opção Inválida");
@@ -226,13 +229,13 @@ public class Menu {
 				if(livros.isEmpty()) {
 					System.out.println("\nAinda não existem livros na biblioteca.\n"); 
 				}else {
-					System.out.println("\nTodos os livros de nossa biblioteca:");
+					System.out.println("\nTodos os livros de nossa biblioteca:\n");
 					b.listarTudo(); 
 				}
 				break;
 			case 6:
 				if(contF != 0) {
-					System.out.println("\nOs livros de filosofia são: ");
+					System.out.println("\nOs livros de filosofia são: \n");
 					for (int i = 0; i < contF; i++) {
 						System.out.println(b.listarFilosofia()[i].getNome());
 					} 
