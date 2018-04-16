@@ -10,15 +10,10 @@ public class teste {
         int op = 10;
         Scanner ler = new Scanner(System.in);
 
-        for(int i = 0; i< cliVips.size(); i++){
-            System.out.println(cliVips.get(i).getNome());
-            System.out.println(cliVips.get(i).calcularTarifa());
-        }
-
         while(op != 9){
-            System.out.println("1 - Verificar tarifas e cadastrar cliete vip. ");
-            System.out.println("2 - Verificar tarifas e cadastrar cliete regular. ");
-            System.out.println("3 - Verificar tarifas e cadastrar cliete premium. ");
+            System.out.println("1 - Cadastrar cliete vip. ");
+            System.out.println("2 - Cadastrar cliete regular. ");
+            System.out.println("3 - Cadastrar cliete premium. ");
             System.out.println("4 - Mostrar tarifas gerais. ");
             System.out.println("9 - Sair. ");
             System.out.print("Escolha uma opcao: ");
@@ -48,6 +43,7 @@ public class teste {
                     }
 
                     break;
+
                 case 2:
                     System.out.print("Digite o nome do cliente: ");
                     String nomeRegular = ler.next();
@@ -68,6 +64,7 @@ public class teste {
                     }
 
                     break;
+
                 case 3:
                     System.out.print("Digite o nome do cliente: ");
                     String nomePremium = ler.next();
@@ -82,11 +79,12 @@ public class teste {
                     }
 
                     for(clientePremium c : cliPremium){
-                        System.out.println("Nome cliente regular: " + c.getNome());
+                        System.out.println("Nome cliente premium: " + c.getNome());
                         System.out.println("Tarifa do cliente: " + c.calcularTarifa());
                         System.out.println(" ");
                     }
 
+                    break;
 
                 case 4:
                     for(clienteVip c : cliVips){
@@ -105,10 +103,12 @@ public class teste {
                     }
                     System.out.println(" ");
 
-
+                case 9:
+                    System.out.println("Fim");
+                    break;
 
                 default:
-                    System.out.println("Fim");
+                    System.out.println("Opcao invalida!");
                     break;
             }
         }
