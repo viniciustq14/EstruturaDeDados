@@ -39,7 +39,7 @@ public class Comunidade {
 				if(uso.getLogin().equals(log)){
 					for (String arq : arquivos) {
 						if(arq.equals(arqv)){
-							arquivos.remove(((Grupo) uso).adicionaArquivoGrupo(arqv));
+							arquivos.remove(((Grupo) uso).deletaArquivoGrupo(arqv));
 						}
 					}
 					
