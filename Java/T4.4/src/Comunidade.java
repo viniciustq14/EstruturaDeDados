@@ -33,11 +33,16 @@ public class Comunidade {
 		}
 	}
 	
-	public void removerArquivo(String log){
+	public void removerArquivo(String log,String arqv){
 		for (Usuario uso : forum) {
 			if(uso instanceof Grupo){
 				if(uso.getLogin().equals(log)){
-					arquivos.remove(((Grupo) uso).adicionaArquivoGrupo("1"));
+					for (String arq : arquivos) {
+						if(arq.equals(arqv)){
+							arquivos.remove(((Grupo) uso).adicionaArquivoGrupo(arqv));
+						}
+					}
+					
 				}
 				else{
 					System.out.println("Usuario invalido");
