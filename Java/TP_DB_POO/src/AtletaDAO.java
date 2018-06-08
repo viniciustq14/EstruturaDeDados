@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AtletaDAO {
@@ -31,8 +32,54 @@ public class AtletaDAO {
 		String sql="INSERT INTO Atleta (nome,categoria,idade) VALUES (?,?,?);";
 		PreparedStatement ps=conn.prepareStatement(sql);
 		ps.setString(1, a.getNome());
-		ps.setString(2, a.getCategoria().toString());
+		ps.setString(2, a.getCategoria());
 		ps.setInt(3, a.getIdade());
 		ps.execute();
+	}
+	
+	public Atleta listarUmAtleta(int id) throws SQLException {
+		String sql = "SELECT * from Atleta WHERE id=?;";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
+		return new Atleta(rs.getInt("id"), rs.getString("nome"), rs.getString("categoria"),rs.getInt("idade"));
+	}
+	
+	public void listar() throws SQLException {
+		String sql = "SELECT * from Atleta;";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			System.out.println("\n Codigo do atleta : "+rs.getObject("id"));
+			System.out.println("Nome do atleta : "+rs.getObject("nome"));
+			System.out.println("Categoria : "+rs.getObject("categoria"));
+			System.out.println("Idade : "+rs.getInt("idade"));
+		}
+	}
+	
+	public void deletarAtleta(int id) throws SQLException {
+		String sql = "DELETE from Atleta WHERE id=?;";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, id);
+		ps.execute();
+		ps.close();
+	}
+	
+	public void alterarIdadeAtleta(int id, int idade) throws SQLException {
+		String sql = "UPDATE from Atleta SET idade=? WHERE id=?;";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, idade);
+		ps.setInt(2, id);
+		ps.execute();
+		ps.close();
+	}
+	
+	public void alterarCategoriaAtleta(int id, String cat) throws SQLException {
+		String sql = "UPDATE from Atleta SET categoria=? WHERE id=?;";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, cat);
+		ps.setInt(2, id);
+		ps.execute();
+		ps.close();
 	}
 }

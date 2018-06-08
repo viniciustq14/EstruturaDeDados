@@ -2,10 +2,10 @@
 public class Atleta {
 	private int id;
 	private String nome;
-	private Categoria categoria;
+	private String categoria;
 	private int idade;
 	
-	public Atleta(int id,String nome, Categoria categoria, int idade) {
+	public Atleta(int id,String nome, String categoria, int idade) {
 		this.id=id;
 		this.nome = nome;
 		this.categoria = categoria;
@@ -20,7 +20,7 @@ public class Atleta {
 		return nome;
 	}
 	
-	public Categoria getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 	
