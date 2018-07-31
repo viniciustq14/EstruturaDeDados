@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1507680503 source:l:\pilhaligada\main.cpp
+	<iostream>
+	"PilhaLigada.h"
+
+1507679614 l:\pilhaligada\pilhaligada.h
+

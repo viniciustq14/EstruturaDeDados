@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1505869610 source:l:\fila_alocacao_sequencial\main.cpp
+	<iostream>
+	"Fila.h"
+
+1505868498 l:\fila_alocacao_sequencial\fila.h
+

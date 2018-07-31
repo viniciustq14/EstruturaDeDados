@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1505260356 source:m:\analizaexpressao\main.cpp
+	<iostream>
+	"Pilha.h"
+
+1504657664 m:\analizaexpressao\pilha.h
+

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1508286665 source:l:\filaligada\main.cpp
+	<iostream>
+	"FilaLiga.h"
+
+1508285978 l:\filaligada\filaliga.h
+

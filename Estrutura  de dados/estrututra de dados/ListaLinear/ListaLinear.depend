@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1503450452 source:c:\users\lab6\documents\chiara-ed\listalinear\main.cpp
+	<iostream>
+	"ListaLinear.h"
+
+1503450529 c:\users\lab6\documents\chiara-ed\listalinear\listalinear.h
+
+1503619850 source:c:\users\lab6.fatecrl\downloads\chiara-ed\chiara-ed\listalinear\main.cpp
+	<iostream>
+	"ListaLinear.h"
+
+1503619653 c:\users\lab6.fatecrl\downloads\chiara-ed\chiara-ed\listalinear\listalinear.h
+	"math.h"
+
+1504218765 source:c:\users\lab6.fatecrl\downloads\listalinear-20170831t220711z-001\listalinear\main.cpp
+	<iostream>
+	"ListaLinear.h"
+
+1504221720 c:\users\lab6.fatecrl\downloads\listalinear-20170831t220711z-001\listalinear\listalinear.h
+	"math.h"
+
+1504655948 source:l:\listalinear\main.cpp
+	<iostream>
+	"ListaLinear.h"
+
+1504656068 l:\listalinear\listalinear.h
+	"math.h"
+

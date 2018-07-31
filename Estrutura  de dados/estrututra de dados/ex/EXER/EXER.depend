@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1509496937 source:l:\ex\exer\main.cpp
+	<iostream>
+	"ExerFila.h"
+
+1509498282 l:\ex\exer\exerfila.h
+	"time.h"
+	"ctype.h"
+	"stdlib.h"
+

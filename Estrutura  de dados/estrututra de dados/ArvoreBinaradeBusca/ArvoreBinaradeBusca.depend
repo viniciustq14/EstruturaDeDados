@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1510708915 source:l:\arvorebinaradebusca\main.cpp
+	<iostream>
+	"ArvoreBB.h"
+
+1510709164 l:\arvorebinaradebusca\arvorebb.h
+
