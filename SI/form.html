@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>Tp de segurança</title>
+    <script>
+        const verificarSenha = () => {
+            const pass = document.getElementById("senha").value;
+            console.log(pass)
+            const forca = 0;
+            if ((pass.length >= 4) && (pass.length <= 7)) {
+                forca += 10
+            }
+            else if ((pass.length > 7)) {
+                forca += 25
+            }
+            if (pass.match(/[a-z]+/)) {
+                forca += 10
+            }
+            if (pass.match(/[A-Z]+/)) {
+                forca += 20
+            }
+            if (pass.match(/[0-9]+/)) {
+                forca += 20
+            }
+            if (pass.match(/[d+]/)) {
+                forca += 20
+            }
+            if (pass.match(/[W+]/)) {
+                forca += 25
+            }
+
+            
+        }
+
+    </script>
+</head>
+
+<body>
+    <form>
+        nome
+        <input type="text" id="nm">
+        <br> email
+        <input type="text" id="email">
+        <br> confirmação do email
+        <input type="text" id="Cemail">
+        <br> senha
+        <input type="password" id="senha">
+        <br> confirmação de senha
+        <input type="password" id="Csenha">
+        <br>
+        <input type="button" value="Confirmar" onclick="verificarSenha()">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<html>
+
+<head>
+	<title>Tp de segurança</title>
+</head>
+<script>
+	const set = (a, b) => {
+		const d = {
+			a: 1,
+			b: 2,
+			c: 3
+		}
+	}
+
+	const Entrar = () => {
+		//const valor = document.getElementById('nm').value
+		//console.log(valor[0])
+
+		//const hash = new Buffer('user': 'password').toString('base64')
+		//console.log('Authorization:  ')
+
+		// for (let i = 0; i < valor.length; i++) {
+		// 	console.log(valor[i])
+
+		// 	const 
+
+		// }
+			const AUsers =new Array("vinicius","bruno","marcio");
+			const APass =new Array("123","456","789");
+		const user = document.getElementById("login").value;
+		const pass = document.getElementById("senha").value;
+		for(let i=0;i<AUsers.length;i++){
+		if (user === AUsers[i] && pass === APass[i]) {
+			window.location.href = "Ambiente.html"
+			
+		}
+		else {
+			window.alert("Usuario nao existe")
+		}
+		}
+		AUsers.forEach(function(element) {
+			console.log(element);
+		}, this);
+		
+	}
+</script>
+
+<body>
+	informe seu login
+	<input type="text" id="login" name="login">
+	<br>
+	<br> informe sua senha
+	<input type="password" id="senha" name="senha">
+	<br>
+	<button title="Entrar" onclick="Entrar()">Entrar</button>
+	<br>
+	<a href="form.html">primeiro acesso </a>
+</body>
+
+</html>
